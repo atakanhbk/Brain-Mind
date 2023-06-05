@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432908795816469457}
   m_Layer: 5
-  m_Name: ReflexLevel2
+  m_Name: ReflexLevel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,11 +131,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
       propertyPath: totalTimer
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
       propertyPath: killClickedObjectTimer
-      value: 5
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
+      propertyPath: totalSpawnClickedObject
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351583, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
       propertyPath: m_Name

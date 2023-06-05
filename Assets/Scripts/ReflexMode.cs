@@ -6,23 +6,32 @@ using UnityEngine.UI;
 public class ReflexMode : MonoBehaviour
 {
     [SerializeField] GameObject clickedObject;
+    [SerializeField] GameObject currentClickedGameObject;
     [SerializeField] Text clickCounterText;
     [SerializeField] Text countDownText;
+    [SerializeField] Text levelNumber;
+
 
     public float clickedCounter = 0;
     float currentClickedObject;
 
     [SerializeField] float totalTimer;
     [SerializeField] float totalSpawnClickedObject;
+    [SerializeField] float killClickedObjectTimer;
 
 
     bool gameOver = false;
     bool win = false;
     bool lose = false;
+
+
+
+
     void Start()
     {
         CreateClickedObjectOnTheScreen();
     }
+
 
 
     private void Update()
@@ -34,14 +43,15 @@ public class ReflexMode : MonoBehaviour
     {
         if (currentClickedObject < totalSpawnClickedObject)
         {
+            killClickedObjectTimer = 0;
+            var spawnedClickedObject = Instantiate(clickedObject, Vector3.zero, Quaternion.identity);
+            currentClickedGameObject = spawnedClickedObject;
+            spawnedClickedObject.transform.parent = gameObject.transform;
 
-        var spawnedClickedObject = Instantiate(clickedObject, Vector3.zero, Quaternion.identity);
-        spawnedClickedObject.transform.parent = gameObject.transform;
-
-        float randomPositionX = Random.Range(-200, 200);
-        float randomPositionY = Random.Range(-700, 700);
-        spawnedClickedObject.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(randomPositionX, randomPositionY);
-        currentClickedObject++;
+            float randomPositionX = Random.Range(-200, 200);
+            float randomPositionY = Random.Range(-500, 500);
+            spawnedClickedObject.gameObject.GetComponent<RectTransform>().anchoredPosition = new Vector2(randomPositionX, randomPositionY);
+            currentClickedObject++;
         }
         else
         {
@@ -51,26 +61,34 @@ public class ReflexMode : MonoBehaviour
         }
 
     }
-    
+
     void EditText()
     {
         clickCounterText.text = "Clicked Counter = " + clickedCounter + " / " + totalSpawnClickedObject;
-        countDownText.text = "Countdown = " + totalTimer.ToString("N0"); 
+        countDownText.text = "Countdown = " + totalTimer.ToString("N0");
+        UIController.SetLevelNumber();
     }
 
     void CountdownFunction()
     {
-       
+
         if (!gameOver)
         {
             totalTimer -= Time.deltaTime;
+            killClickedObjectTimer -= Time.deltaTime;
+
+            if (killClickedObjectTimer <= 0)
+            {
+                Destroy(currentClickedGameObject);
+                CreateClickedObjectOnTheScreen();
+                killClickedObjectTimer = 0;
+            }
         }
-       
+
 
         if (totalTimer <= 0)
         {
-            totalTimer = 0;
-            gameOver = true;
+          
             lose = true;
             GameFinished();
         }
@@ -78,17 +96,18 @@ public class ReflexMode : MonoBehaviour
 
     void GameFinished()
     {
-  
+          totalTimer = 0;
+            gameOver = true;
         if (win)
         {
-       
+
             UIController.WinScreen();
         }
         else if (lose)
         {
             UIController.LoseScreen();
         }
-
+        UIController.ResetLevelNumber();
         KillCurrentLevel();
     }
 
@@ -97,5 +116,5 @@ public class ReflexMode : MonoBehaviour
         Destroy(gameObject);
     }
 
-  
+
 }

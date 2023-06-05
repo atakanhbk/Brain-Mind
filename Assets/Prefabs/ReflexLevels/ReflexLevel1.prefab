@@ -129,6 +129,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
+      propertyPath: killClickedObjectTimer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351583, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
       propertyPath: m_Name
       value: ReflexLevelController

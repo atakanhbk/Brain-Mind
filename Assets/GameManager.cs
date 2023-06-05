@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     [Header("Game Finished")]
@@ -10,11 +11,12 @@ public class GameManager : MonoBehaviour
 
     [Header("Level Controller")]
     [SerializeField] private ReflexLevelManager reflexLevelController;
-
     [SerializeField] public LevelScriptableObject levelScriptableObject;
 
-    public int reflexLevelNumber;
-    public int memoryLevelNumber;
+
+
+    public static int reflexLevelNumber;
+    public static int memoryLevelNumber;
 
     public static bool isReflexLevelOpen;
     public static bool isMemoryLevelOpen;
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     public void ClickedNextLevel()
     {
         if (isReflexLevelOpen)
@@ -52,9 +55,11 @@ public class GameManager : MonoBehaviour
         {
             case "reflexLevel":
                 levelScriptableObject.reflexLevelNumber++;
+                reflexLevelNumber = levelScriptableObject.reflexLevelNumber;
                 break;
             case "memoryLevel":
                 levelScriptableObject.memoryLevelNumber++;
+                memoryLevelNumber = levelScriptableObject.memoryLevelNumber;
                 break;
         }
 

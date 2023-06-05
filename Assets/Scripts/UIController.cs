@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
     public GameObject winScreenPrefab;
     public GameObject loseScreenPrefab;
+
+    public Text levelNumberText;
 
     private static UIController uiController;
 
@@ -27,10 +30,24 @@ public class UIController : MonoBehaviour
         Debug.Log("Showed Lose Screen");
     }
 
-    public void ClickedTryAgain()
+    public static void SetLevelNumber()
     {
      
+        if (GameManager.isReflexLevelOpen)
+        {
+            uiController.levelNumberText.text = "LEVEL " + (GameManager.reflexLevelNumber + 1);
+        }
+       
     }
 
+    public static void ResetLevelNumber()
+    {
+
+        if (GameManager.isReflexLevelOpen)
+        {
+            uiController.levelNumberText.text = "";
+        }
+
+    }
     // ...
 }
