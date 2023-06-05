@@ -17,7 +17,7 @@ public class ReflexLevelManager : MonoBehaviour
         spawnedLevel.GetComponent<RectTransform>().offsetMin = Vector2.zero;
         spawnedLevel.GetComponent<RectTransform>().offsetMax = Vector2.zero;
         GameManager.isReflexLevelOpen = true;
-        UIController.SetLevelNumber();
+    
     }
 
     
