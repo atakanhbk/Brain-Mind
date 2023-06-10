@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432908795816469457}
   m_Layer: 5
-  m_Name: ReflexLevel1
+  m_Name: ReflexLevel5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7037161291636758656}
+  - {fileID: 1451829262630355333}
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37,7 +37,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1001 &8558787839263676248
+--- !u!1001 &237010577057402461
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -131,23 +131,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
       propertyPath: totalTimer
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
-      propertyPath: killClickedObjectTimer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
-      propertyPath: totalSpawnClickedObject
-      value: 15
+      propertyPath: killClickedObjectTimer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
-      propertyPath: addKillClickedObjectTimer
-      value: 1
+      propertyPath: totalSpawnClickedObject
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
       propertyPath: divideTotalTimerForKillTimer
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351583, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
       propertyPath: m_Name
@@ -156,8 +152,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
---- !u!224 &7037161291636758656 stripped
+--- !u!224 &1451829262630355333 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1688824401914351576, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
-  m_PrefabInstance: {fileID: 8558787839263676248}
+  m_PrefabInstance: {fileID: 237010577057402461}
   m_PrefabAsset: {fileID: 0}

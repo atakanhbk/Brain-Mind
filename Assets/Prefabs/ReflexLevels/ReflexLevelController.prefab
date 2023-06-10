@@ -52,12 +52,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickedObject: {fileID: 782089634752102147, guid: 97cad130acef31c49bcd27954c1f9508, type: 3}
+  currentClickedGameObject: {fileID: 0}
   clickCounterText: {fileID: 1688824403407078944}
   countDownText: {fileID: 1688824402745379218}
   levelNumber: {fileID: 0}
-  clickedCounter: 0
   totalTimer: 10
-  totalSpawnClickedObject: 5
+  totalSpawnClickedObject: 15
+  divideTotalTimerForKillTimer: 5
+  clickedCounter: 0
 --- !u!1 &1688824402745379216
 GameObject:
   m_ObjectHideFlags: 0
