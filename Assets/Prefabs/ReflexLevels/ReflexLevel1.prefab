@@ -133,6 +133,14 @@ PrefabInstance:
       propertyPath: killClickedObjectTimer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
+      propertyPath: addKillClickedObjectTimer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688824401914351577, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
+      propertyPath: divideTotalTimerForKillTimer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1688824401914351583, guid: 41d7f5d32f8ac0e429552a0b31dd5462, type: 3}
       propertyPath: m_Name
       value: ReflexLevelController

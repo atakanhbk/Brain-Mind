@@ -21,13 +21,13 @@ public class UIController : MonoBehaviour
     public static void WinScreen()
     {
         uiController.winScreenPrefab.gameObject.SetActive(true);
-        Debug.Log("Showed Win Screen");
+
     }
 
     public static void LoseScreen()
     {
         uiController.loseScreenPrefab.gameObject.SetActive(true);
-        Debug.Log("Showed Lose Screen");
+  
     }
 
     public static void SetLevelNumber()
@@ -37,16 +37,19 @@ public class UIController : MonoBehaviour
         {
             uiController.levelNumberText.text = "LEVEL " + (GameManager.reflexLevelNumber + 1);
         }
+        else if (GameManager.isMemoryLevelOpen)
+        {
+            uiController.levelNumberText.text = "LEVEL " + (GameManager.memoryLevelNumber + 1);
+        }
        
     }
 
     public static void ResetLevelNumber()
     {
 
-        if (GameManager.isReflexLevelOpen)
-        {
+     
             uiController.levelNumberText.text = "";
-        }
+  
 
     }
     // ...

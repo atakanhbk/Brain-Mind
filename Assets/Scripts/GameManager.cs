@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Level Controller")]
     [SerializeField] private ReflexLevelManager reflexLevelController;
+    [SerializeField] private MemoryLevelManager memoryLevelController;
     [SerializeField] public LevelScriptableObject levelScriptableObject;
 
 
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
         reflexLevelNumber = levelScriptableObject.reflexLevelNumber;
         memoryLevelNumber = levelScriptableObject.memoryLevelNumber;
     }
+  
 
     public void ClickedTryAgain()
     {
@@ -34,6 +36,13 @@ public class GameManager : MonoBehaviour
             CleanEverythingBeforeLevelSpawn();
             reflexLevelController.CreateReflexLevel();
 
+        }
+
+        else if (isMemoryLevelOpen)
+        {
+            Debug.Log("Worked");
+            CleanEverythingBeforeLevelSpawn();
+            memoryLevelController.CreateMemoryLevel();
         }
     }
 
@@ -45,6 +54,13 @@ public class GameManager : MonoBehaviour
             CleanEverythingBeforeLevelSpawn();
             IncreaseLevelNumber("reflexLevel");
             reflexLevelController.CreateReflexLevel();
+        }
+
+        else if (isMemoryLevelOpen)
+        {
+            CleanEverythingBeforeLevelSpawn();
+            IncreaseLevelNumber("memoryLevel");
+            memoryLevelController.CreateMemoryLevel();
         }
     }
 

@@ -5,24 +5,32 @@ using UnityEngine.UI;
 
 public class ReflexMode : MonoBehaviour
 {
+    [Header("GameObjects")]
     [SerializeField] GameObject clickedObject;
     [SerializeField] GameObject currentClickedGameObject;
+
+    [Header("UI")]
     [SerializeField] Text clickCounterText;
     [SerializeField] Text countDownText;
     [SerializeField] Text levelNumber;
 
-
-    public float clickedCounter = 0;
-    float currentClickedObject;
+    [Header("Values")]
 
     [SerializeField] float totalTimer;
     [SerializeField] float totalSpawnClickedObject;
-    [SerializeField] float killClickedObjectTimer;
+    [SerializeField] float divideTotalTimerForKillTimer;
+    public float clickedCounter = 0;
+    float killClickedObjectTimer;
+    float firstValueKillClickedObjectTimer;
+    float currentClickedObject;
 
 
+    [Header("Bools")]
     bool gameOver = false;
     bool win = false;
     bool lose = false;
+
+    
 
 
 
@@ -30,6 +38,8 @@ public class ReflexMode : MonoBehaviour
     void Start()
     {
         CreateClickedObjectOnTheScreen();
+        killClickedObjectTimer = totalTimer / divideTotalTimerForKillTimer;
+        firstValueKillClickedObjectTimer = killClickedObjectTimer;
     }
 
 
@@ -38,12 +48,13 @@ public class ReflexMode : MonoBehaviour
     {
         EditText();
         CountdownFunction();
+
     }
     public void CreateClickedObjectOnTheScreen()
     {
         if (currentClickedObject < totalSpawnClickedObject)
         {
-            killClickedObjectTimer = 0;
+            killClickedObjectTimer = firstValueKillClickedObjectTimer;
             var spawnedClickedObject = Instantiate(clickedObject, Vector3.zero, Quaternion.identity);
             currentClickedGameObject = spawnedClickedObject;
             spawnedClickedObject.transform.parent = gameObject.transform;
@@ -81,7 +92,8 @@ public class ReflexMode : MonoBehaviour
             {
                 Destroy(currentClickedGameObject);
                 CreateClickedObjectOnTheScreen();
-                killClickedObjectTimer = 0;
+                currentClickedObject--;
+                killClickedObjectTimer = firstValueKillClickedObjectTimer;
             }
         }
 
@@ -113,7 +125,7 @@ public class ReflexMode : MonoBehaviour
 
     void KillCurrentLevel()
     {
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 
 
