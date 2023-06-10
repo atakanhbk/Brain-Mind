@@ -26,8 +26,9 @@ public class MemoryMode : MonoBehaviour
         else
         {
             UIController.LoseScreen();
-            KillCurrentLevel();
+          
         }
+        KillCurrentLevel();
     }
 
     void KillCurrentLevel()
