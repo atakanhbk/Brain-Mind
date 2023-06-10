@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Header("Game Finished")]
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
+    public GameObject currentLevelGameObject;
 
     [Header("Level Controller")]
     [SerializeField] private ReflexLevelManager reflexLevelController;
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public LevelScriptableObject levelScriptableObject;
 
 
+    public GameObject homeButton;
 
     public static int reflexLevelNumber;
     public static int memoryLevelNumber;
@@ -66,19 +68,31 @@ public class GameManager : MonoBehaviour
 
     void IncreaseLevelNumber(string levelType)
     {
-
-        switch (levelType)
-        {
-            case "reflexLevel":
+      
+            switch (levelType)
+            {
+                case "reflexLevel":
                 levelScriptableObject.reflexLevelNumber++;
                 reflexLevelNumber = levelScriptableObject.reflexLevelNumber;
-                break;
-            case "memoryLevel":
-                levelScriptableObject.memoryLevelNumber++;
-                memoryLevelNumber = levelScriptableObject.memoryLevelNumber;
-                break;
-        }
 
+                if (reflexLevelNumber == 5)
+                {
+                    levelScriptableObject.reflexLevelNumber = Random.Range(0,5);
+                    reflexLevelNumber = levelScriptableObject.reflexLevelNumber;
+                }
+                    break;
+                case "memoryLevel":
+                    levelScriptableObject.memoryLevelNumber++;
+                    memoryLevelNumber = levelScriptableObject.memoryLevelNumber;
+
+
+                if (memoryLevelNumber == 5)
+                {
+                    levelScriptableObject.memoryLevelNumber = Random.Range(0, 5);
+                    memoryLevelNumber = levelScriptableObject.memoryLevelNumber;
+                }
+                break;
+            }
      
     }
 
@@ -93,7 +107,12 @@ public class GameManager : MonoBehaviour
         CloseWinAndLoseScreen();
     }
 
-   
+   public void ClickedHomeButton()
+    {
+        CloseWinAndLoseScreen();
+        UIController.ResetLevelNumber();
+        Destroy(currentLevelGameObject.gameObject);
+    }
 
   
 

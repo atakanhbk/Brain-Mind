@@ -10,6 +10,7 @@ public class MemoryLevelManager : MonoBehaviour
     {
         var spawnedLevel = Instantiate(memoryLevelList[gameManager.levelScriptableObject.memoryLevelNumber].gameObject, Vector3.zero, Quaternion.identity);
         spawnedLevel.gameObject.transform.parent = transform.parent;
+        gameManager.currentLevelGameObject = spawnedLevel;
         spawnedLevel.transform.localScale = Vector3.one;
         spawnedLevel.GetComponent<RectTransform>().offsetMin = Vector2.zero;
         spawnedLevel.GetComponent<RectTransform>().offsetMax = Vector2.zero;

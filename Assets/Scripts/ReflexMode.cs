@@ -30,7 +30,7 @@ public class ReflexMode : MonoBehaviour
     bool win = false;
     bool lose = false;
 
-    
+
 
 
 
@@ -100,7 +100,7 @@ public class ReflexMode : MonoBehaviour
 
         if (totalTimer <= 0)
         {
-          
+
             lose = true;
             GameFinished();
         }
@@ -108,8 +108,8 @@ public class ReflexMode : MonoBehaviour
 
     void GameFinished()
     {
-          totalTimer = 0;
-            gameOver = true;
+        totalTimer = 0;
+        gameOver = true;
         if (win)
         {
 
